@@ -11,6 +11,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "BASE_URL", '"http://10.0.2.2:28282/rest/qod/"'
+//        use base url to access host machine that emulator is running on
+        buildConfigField "String", "CLIENT_ID", '"490611655554-lq0mpe5jm94ej0tvcvqkl8lt77vkt0di.apps.googleusercontent.com"'
+//        use client id to contact webservice. The client id is from the webservice.
+        buildConfigField "String", "AUTHORIZATION_FORMAT", '"Bearer %s"'
+//        Use auth format to format the OAut 2
     }
     buildTypes {
         release {

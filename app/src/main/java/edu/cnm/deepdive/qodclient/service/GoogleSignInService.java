@@ -5,6 +5,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import edu.cnm.deepdive.qodclient.BuildConfig;
 
 public class GoogleSignInService {
 
@@ -16,8 +17,9 @@ public class GoogleSignInService {
   private GoogleSignInService() {
     GoogleSignInOptions options = new GoogleSignInOptions.Builder()
         .requestEmail()
-        .requestId()
-        .requestProfile()
+        .requestId() //can use to identify user as unique identifier not primary key
+        .requestProfile() //get image
+        .requestIdToken(BuildConfig.CLIENT_ID) //passport stamp for the webservice
         .build();
     client = GoogleSignIn.getClient(context, options);
   }
